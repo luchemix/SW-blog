@@ -1,4 +1,19 @@
 const getState = ({ getStore, getActions, setStore }) => {
+	const getPeople = () => {
+		fetch("https://www.swapi.tech/api/people/")
+			.then(res => res.json())
+			.then(data => console.log(data))
+			.catch(err => console.error(err));
+	};
+	getPeople();
+	const getPlanets = () => {
+		fetch("https://www.swapi.tech/api/planets/")
+			.then(res => res.json())
+			.then(data => console.log(data))
+			.catch(err => console.error(err));
+	};
+	getPeople();
+
 	return {
 		store: {
 			demo: [

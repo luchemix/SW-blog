@@ -1,16 +1,38 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../../styles/navbar.scss";
 
-export const Navbar = () => {
+export const Navbar = props => {
 	return (
-		<nav className="navbar navbar-light bg-light mb-3">
+		<nav className="navbar navbar-dark bg-dark mb-3">
 			<Link to="/">
-				<span className="navbar-brand mb-0 h1">React Boilerplate</span>
+				<span className="navbar-brand mb-0 h1">
+					<img id="logo" src="https://seeklogo.com/images/S/Star_Wars-logo-BF51C9BC8D-seeklogo.com.png" />
+				</span>
 			</Link>
 			<div className="ml-auto">
-				<Link to="/demo">
-					<button className="btn btn-primary">Check the Context in action</button>
-				</Link>
+				<div className="dropdown">
+					<button
+						className="btn btn-secondary dropdown-toggle"
+						type="button"
+						id="dropdownMenuButton"
+						data-toggle="dropdown"
+						aria-haspopup="true"
+						aria-expanded="false">
+						Dropdown button
+					</button>
+					<div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						<a className="dropdown-item" href="#">
+							Action
+						</a>
+						<a className="dropdown-item" href="#">
+							Another action
+						</a>
+						<a className="dropdown-item" href="#">
+							Something else here
+						</a>
+					</div>
+				</div>
 			</div>
 		</nav>
 	);
