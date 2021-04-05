@@ -1,5 +1,4 @@
 import React, { useEffect, useContext } from "react";
-import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.scss";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
@@ -19,13 +18,18 @@ export const Home = () => {
 					<h3>Characters</h3>
 				</div>
 				<div id="cardRoll" className="scrolling-wrapper row flex-row flex-nowrap mt-2 pb-4 pt-2">
-					{store.people.map((item, indice) => {
+					{store.people.map((item, i) => {
+						let theid = i;
 						return (
-							<div key={indice}>
+							<div key={i}>
 								<div className="col-12" id="myCard">
 									<div className="card">
 										<img
-											src="https://estaticos.muyinteresante.es/media/cache/760x570_thumb/uploads/images/test/5cbeea135cafe88451149213/sw1.jpg"
+											src={
+												item.name === store.peopleimg.name
+													? store.peopleimg.url
+													: "https://estaticos.muyinteresante.es/media/cache/760x570_thumb/uploads/images/test/5cbeea135cafe88451149213/sw1.jpg"
+											}
 											className="card-img-top mw-100 mh-100"
 											alt="..."
 										/>
@@ -41,21 +45,23 @@ export const Home = () => {
 											</p>
 
 											<div className="d-inline-block">
-												<Link to="/cardView" className="btn-sm btn-primary">
+												<Link to={"/cardView/" + theid} className="btn-sm btn-primary">
 													More
 												</Link>
 											</div>
 
-											<div className="float-right d-inline-block">
-												<button
-													onClick={() => {
-														actions.setFavorites(item.name);
-													}}
-													type="button"
-													className="btn text-light "
-													id="myFavorite">
-													<i className="far fa-heart" />
-												</button>
+											<div className="float-right d-inline-block text-light">
+												{store.favorites.includes(item.name) ? null : (
+													<button
+														onClick={() => {
+															actions.setFavorites(item.name);
+														}}
+														type="button"
+														className="btn text-light "
+														id="myFavorite">
+														<i className="far fa-heart" />
+													</button>
+												)}
 											</div>
 										</div>
 									</div>
@@ -70,9 +76,10 @@ export const Home = () => {
 					<h3>Planets</h3>
 				</div>
 				<div id="planetRoll" className="scrolling-wrapper row flex-row flex-nowrap mt-2 pb-4 pt-2">
-					{store.planets.map((item, indice) => {
+					{store.planets.map((item, i) => {
+						let theid = i;
 						return (
-							<div key={indice}>
+							<div key={i}>
 								<div className="col-12" id="myCard">
 									<div className="card">
 										<img
@@ -92,7 +99,7 @@ export const Home = () => {
 											</p>
 
 											<div className="d-inline-block">
-												<Link to="/planetView" className="btn-sm btn-primary">
+												<Link to={"/planetView/" + theid} className="btn-sm btn-primary">
 													More
 												</Link>
 											</div>

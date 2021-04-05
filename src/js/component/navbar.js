@@ -32,18 +32,21 @@ export const SWNavbar = () => {
 				</Col>
 				<Col sm={2}>
 					<Dropdown as={ButtonGroup}>
-						<Button variant="success">
+						<Button variant="info">
 							Favorites <Badge variant="secondary">{store.favorites.length}</Badge>
 						</Button>
 
-						<Dropdown.Toggle split variant="success" id="dropdown-split-basic" />
+						<Dropdown.Toggle split variant="info" id="dropdown-split-basic" />
 
-						<Dropdown.Menu className="bg-success">
+						<Dropdown.Menu className="bg-info">
 							{store.favorites.map((item, index) => {
 								return (
-									<Dropdown.Item key={index} href="#/action-1">
+									<Dropdown.Item key={index} href="#/action-1" className="bg-info">
 										{item + " "}
-										<i className="fa fa-trash" onClick={() => actions.deleteFavorite(index)} />
+										<i
+											className="far fa-times-circle text-dark font-weight-bold"
+											onClick={() => actions.deleteFavorite(index)}
+										/>
 									</Dropdown.Item>
 								);
 							})}

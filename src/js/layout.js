@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, useParams } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./views/home";
@@ -26,14 +26,11 @@ const Layout = () => {
 						<Route exact path="/">
 							<Home />
 						</Route>
-						<Route exact path="/cardView">
+						<Route exact path="/cardView/:theid">
 							<CardView />
 						</Route>
-						<Route exact path="/planetView">
+						<Route exact path="/planetView/:theid">
 							<PlanetView />
-						</Route>
-						<Route exact path="/single/:theid">
-							<Single />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

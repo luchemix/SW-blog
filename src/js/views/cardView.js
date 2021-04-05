@@ -3,14 +3,15 @@ import PropTypes from "prop-types";
 import "../../styles/cardView.scss";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
+import { Button, ButtonGroup, Container, Row, Col, Badge } from "react-bootstrap";
 
-export const CardView = props => {
+export const CardView = () => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
 	return (
 		<div id="cardbody" className="container text-light border border-light rounded">
 			<div id="name" className="text-center w-25">
-				<h4>Name</h4>
+				<h4>{store.people[params.theid].name}</h4>
 			</div>
 			<div id="info" className="row">
 				<div id="data" className="col-6">
@@ -24,8 +25,36 @@ export const CardView = props => {
 					sit amet ante nibh.
 				</div>
 				<div id="photo" className="col-6">
-					<img src="https://ichef.bbci.co.uk/news/800/cpsprodpb/5F17/production/_110234342_mv5botkxmzc0mdg5mv5bml5banbnxkftztcwnjuxmza4na--._v1_sy1000_cr0014841000_al_.jpg" />
+					<img
+						src="https://ichef.bbci.co.uk/news/800/cpsprodpb/5F17/production/_110234342_mv5botkxmzc0mdg5mv5bml5banbnxkftztcwnjuxmza4na--._v1_sy1000_cr0014841000_al_.jpg"
+						className="rounded"
+					/>
 				</div>
+			</div>
+			<div className="row justify-content-center">
+				<ul className="list-group list-group-horizontal bg-dark">
+					<li className="list-group-item list-group-item-dark border border-light text-center">
+						Height: {store.people[params.theid].height}
+					</li>
+					<li className="list-group-item list-group-item-dark border border-light text-center">
+						Mass: {store.people[params.theid].mass}
+					</li>
+					<li className="list-group-item list-group-item-dark border border-light text-center">
+						Hair Color: {store.people[params.theid].hair_color}
+					</li>
+					<li className="list-group-item list-group-item-dark border border-light text-center">
+						Eye Color: {store.people[params.theid].eye_color}
+					</li>
+					<li className="list-group-item list-group-item-dark border border-light text-center">
+						Skin Color: {store.people[params.theid].skin_color}
+					</li>
+					<li className="list-group-item list-group-item-dark border border-light text-center">
+						Gender: {store.people[params.theid].gender}
+					</li>
+					<li className="list-group-item list-group-item-dark border border-light text-center">
+						Homeworld: {store.planets[params.theid].name}
+					</li>
+				</ul>
 			</div>
 		</div>
 	);

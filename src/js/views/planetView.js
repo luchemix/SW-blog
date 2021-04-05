@@ -10,7 +10,7 @@ export const PlanetView = props => {
 	return (
 		<div id="cardbody" className="container text-light border border-light rounded">
 			<div id="name" className="text-center w-25">
-				<h4>Name</h4>
+				<h4>{store.planets[params.theid].name}</h4>
 			</div>
 			<div id="info" className="row">
 				<div id="data" className="col-6">
@@ -26,6 +26,31 @@ export const PlanetView = props => {
 				<div id="photo" className="col-6">
 					<img src="https://upload.wikimedia.org/wikipedia/en/6/6d/Tatooine_%28fictional_desert_planet%29.jpg" />
 				</div>
+			</div>
+			<div className="row justify-content-center">
+				<ul className="list-group list-group-horizontal bg-dark">
+					<li className="list-group-item list-group-item-dark border border-light text-center">
+						Population: {store.planets[params.theid].population}
+					</li>
+					<li className="list-group-item list-group-item-dark border border-light text-center">
+						Climate: {store.planets[params.theid].climate}
+					</li>
+					<li className="list-group-item list-group-item-dark border border-light text-center">
+						Terrain: {store.planets[params.theid].terrain}
+					</li>
+					<li className="list-group-item list-group-item-dark border border-light text-center">
+						Diamater: {store.planets[params.theid].diameter}
+					</li>
+					<li className="list-group-item list-group-item-dark border border-light text-center">
+						Gravity: {store.planets[params.theid].gravity}
+					</li>
+					<li className="list-group-item list-group-item-dark border border-light text-center">
+						Rotation Period: {store.planets[params.theid].rotation_period}
+					</li>
+					<li className="list-group-item list-group-item-dark border border-light text-center">
+						Orbital Period: {store.planets[params.theid].orbital_period}
+					</li>
+				</ul>
 			</div>
 		</div>
 	);
