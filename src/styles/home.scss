@@ -5,11 +5,17 @@ body{
 	overflow-x: auto;
 
 }
+#myCard{
+    width: 400px;
+    max-height: 95%;
+}
 #cardRoll > div{
     display: inline-block;
-
 }
 #planetRoll > div{
     display: inline-block;
     
+}
+#cardBody{
+    background-color: black;
 }
